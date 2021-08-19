@@ -1,3 +1,0 @@
-Exemplo commit1
-a melhor turma , 33 
-estamos aprendendo git e github
