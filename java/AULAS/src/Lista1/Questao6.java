@@ -21,7 +21,8 @@ public class Questao6
 		y2 = in.nextDouble();
 		System.out.printf("Ponto 1 (%.2f , %.2f)", x1, y1);
 		System.out.printf("\nPonto 2 (%.2f , %.2f)", x2, y2);
-		d = Math.sqrt((Math.pow((x2-x1), 2)) + (Math.pow((y2-y1), 2)));
+		d = Math.sqrt((Math.pow((x2-x1),2)) + (Math.pow((y2-y1),2)));
+		//d = Math.sqrt((Math.pow((x2-x1), 2)) + (Math.pow((y2-y1), 2)));
 		System.out.printf("\nA distância entre o Ponto 1 e o Ponto 2 é %.2f.", d);
 		
 		in.close();
