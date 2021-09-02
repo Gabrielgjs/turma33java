@@ -154,7 +154,7 @@ programa
 		escreva("\n")
 		
 		para(inteiro  l=1; l<=10; l++){
-			codigo[l] = "G1-"+l
+			codigo[l] = "G6-"+l
 			escreva(codigo[l] + "\t | ")
 			escreva(produto[l] + "\t | ")
 			escreva(valor[l] + "\t | ")
@@ -211,7 +211,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2755; 
+ * @POSICAO-CURSOR = 3454; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
