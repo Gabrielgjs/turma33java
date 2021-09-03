@@ -17,16 +17,18 @@ public class Desafio2Matriz {
 				somaTotal = somaTotal + matriz[linha][coluna];
 
 			}
+
 		}
-		
-		for(linha=0; linha<3; linha++) {
-			for(coluna =0; coluna<3; coluna++) {
-				System.out.print("[ "+ matriz[linha][coluna]+ " ]");
+
+		for (linha = 0; linha < 3; linha++) {
+
+			for (coluna = 0; coluna < 3; coluna++) {
+				System.out.print("[ " + matriz[linha][coluna] + " ]");
 			}
 			System.out.println("\n");
 		}
-		SomaDiagonal = ((matriz[0][0])+(matriz[1][1])+(matriz[2][2]));
-		System.out.println("\n A soma total é de: "+ somaTotal);
-		System.out.println("\n A soma da diagonal principál é de: "+SomaDiagonal+"\n");
+		SomaDiagonal = ((matriz[0][0]) + (matriz[1][1]) + (matriz[2][2]));
+		System.out.println("\n A soma total é de: " + somaTotal);
+		System.out.println("\n A soma da diagonal principál é de: " + SomaDiagonal + "\n");
 	}
 }
