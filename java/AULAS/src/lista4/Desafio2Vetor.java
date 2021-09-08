@@ -36,7 +36,5 @@ public class Desafio2Vetor {
 		System.out.println("\n\nA média aritmética dos lançamentos foi de: "+ media);
 		System.out.println("\nA quantidade que o número 6 saiu foi de: "+ xNumeroMaior+ "vezes. \n");
 		
-		
-				
-	}
+		}
 }

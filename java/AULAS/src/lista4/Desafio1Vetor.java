@@ -31,7 +31,5 @@ public class Desafio1Vetor {
 				break;
 			}
 		}
-		
-		
 	}
 }
