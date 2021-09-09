@@ -10,7 +10,7 @@ public class OiMundo {
 		int anoNascimento=1992;
 		int anoAtual = 2021;
 		
-		System.out.println("Oi mundo, \nAqui é a turma 33");
+		System.out.println("Oi mundo, \nAqui é a turma 33, vamos nessa !");
 		System.out.println("Digite o nome: ");
 		nome = leia.next();
 		System.out.println("Digite o ano de nascimento: ");
