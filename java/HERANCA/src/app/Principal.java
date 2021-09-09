@@ -1,10 +1,10 @@
-package Application;
+package app;
 
 import java.util.Scanner;
 
-import Entities.Cachorro;
-import Entities.Cavalo;
-import Entities.Preguica;
+import entities.Cachorro;
+import entities.Cavalo;
+import entities.Preguica;
 
 public class Principal {
 	
