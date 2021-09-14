@@ -19,19 +19,6 @@ public class Produto {
 	protected double valorTotalDaCompra = 0.00;
 	protected double precoPagar = 0.00;
 
-	public void cabecalho() {
-		String nomeLoja = "NANPPA", slogan = "A Loja do Dev desesperado!\n";
-
-		System.out.print("\n");
-		System.out.print("\n===============================================================================\n");
-		System.out.print(nomeLoja);
-		System.out.print("\n");
-		System.out.print(slogan);
-		System.out.print("===============================================================================\n");
-		System.out.print("\n");
-
-	}
-
 	public Produto(String nomeLoja, String slogan) {
 		super();
 		this.nomeLoja = nomeLoja;
@@ -130,6 +117,19 @@ public class Produto {
 		return VALORFIXO;
 	}
 
+	public void cabecalho() {
+		String nomeLoja = "NANPPA", slogan = "A Loja do Dev desesperado!\n";
+
+		System.out.print("\n");
+		System.out.print("\n===============================================================================\n");
+		System.out.print(nomeLoja);
+		System.out.print("\n");
+		System.out.print(slogan);
+		System.out.print("===============================================================================\n");
+		System.out.print("\n");
+
+	}
+
 	public void mostraProduto() {
 		String tituloMatriz[] = { "COD \t |", "PRODUTO \t\t |", "VALOR \t |", "ESTOQUE" };
 		produto[0] = "PRODUTO";
@@ -142,7 +142,7 @@ public class Produto {
 		produto[7] = "LIVRO EXCEL I";
 		produto[8] = "LIVRO CSS 3 I";
 		produto[9] = "LIVRO CSS 3 II";
-		produto[10] = "LIVRO L√ìGICA I";
+		produto[10] = "LIVRO L”GICA I";
 
 		tituloMatriz[0] = "COD \t |";
 		tituloMatriz[1] = "PRODUTO \t\t |";
@@ -171,28 +171,28 @@ public class Produto {
 		try {
 			Scanner scan = new Scanner(System.in);
 
-			System.out.print("\nDigite o c√≥digo do produto desejado: G6-");
+			System.out.print("\nDigite o cÛdigo do produto desejado: G6-");
 			int codigoDoProdutoDesejado = scan.nextInt();
 			// InputMismatchException
 			while (codigoDoProdutoDesejado < 0 || codigoDoProdutoDesejado > 10) {
 
 				System.out.print("\n-------------------------------------------------------------------------------\n");
-				System.out.print("C√≥digo Inv√°lido!! ");
+				System.out.print("CÛdigo Inv·lido!! ");
 				System.out.print("\n-------------------------------------------------------------------------------\n");
-				System.out.print("\nDigite o c√≥digo do produto desejado: G6-");
+				System.out.print("\nDigite o cÛdigo do produto desejado: G6-");
 				codigoDoProdutoDesejado = scan.nextInt();
 
 			}
 
-			System.out.print("Digite a quantidade necess√°ria: ");
+			System.out.print("Digite a quantidade necess·ria: ");
 			int quantidadeDesejada = scan.nextInt();
 
 			while (quantidadeDesejada < 0 || quantidadeDesejada > 10) {
 
 				System.out.print("\n-------------------------------------------------------------------------------\n");
-				System.out.print("Estoque inv√°lido!! ");
+				System.out.print("Estoque inv·lido!! ");
 				System.out.print("\n-------------------------------------------------------------------------------\n");
-				System.out.print("\nDigite a quantidade necess√°ria:");
+				System.out.print("\nDigite a quantidade necess·ria:");
 				quantidadeDesejada = scan.nextInt();
 
 			}
@@ -212,7 +212,7 @@ public class Produto {
 
 		} catch (InputMismatchException exception) {
 			System.out.print("\n===============================================================================\n");
-			System.out.print("Digite apenas um c√≥digo presente na lista de produtos, por favor <3");
+			System.out.print("Digite apenas um cÛdigo presente na lista de produtos, por favor <3");
 			System.out.print("\n===============================================================================\n");
 			System.out.println("\n\n");
 		}
@@ -235,17 +235,16 @@ public class Produto {
 			System.out.print(estoque[l]);
 			System.out.print("\n");
 		}
-	
+
 		System.out.print("\n===============================================================================\n");
 		System.out.print("CARRINHO DE COMPRAS");
 		System.out.print("\n===============================================================================\n");
 		carrinho();
-		
+
 	}
 
 	public void carrinho() {
-		
-		
+
 		// System.out.println("\nCarrinho de Compras: \n");
 		// System.out.println("\n");
 		System.out.print(tituloMatriz[0]);
@@ -278,7 +277,7 @@ public class Produto {
 			System.out.print("FORMAS DE PAGAMENTO");
 			System.out.print("\n===============================================================================\n");
 			System.out.print(
-					"\n1 - A VISTA COM 10% DESCONTO\n2 - NO CART√ÉO COM ACRESCIMO DE 10%\n3 - EM DUAS VEZES COM 15% TOTAL DE ACRESCIMENTO");
+					"\n1 - A VISTA COM 10% DESCONTO\n2 - NO CART√O COM ACRESCIMO DE 10%\n3 - EM DUAS VEZES COM 15% TOTAL DE ACRESCIMENTO");
 
 			System.out.println("\n\nEscolha sua forma de pagamento:");
 			formaDePagamento = scan.next().charAt(0);
@@ -290,7 +289,7 @@ public class Produto {
 
 					System.out.println("\n");
 				}
-				System.out.print("Voc√™ vai pagar: " + precoPagar);
+				System.out.print("VocÍ vai pagar: " + precoPagar);
 				break;
 			} else if (formaDePagamento == '2') {
 				desconto = (valorTotalDaCompra * 10) / 100;
@@ -299,7 +298,7 @@ public class Produto {
 
 					System.out.println("\n");
 				}
-				System.out.print("Voc√™ vai pagar: " + precoPagar);
+				System.out.print("VocÍ vai pagar: " + precoPagar);
 				break;
 			} else if (formaDePagamento == '3') {
 				desconto = (valorTotalDaCompra * 15) / 100;
@@ -309,7 +308,7 @@ public class Produto {
 
 					System.out.println("\n");
 				}
-				System.out.print("Voc√™ vai pagar: " + precoPagar + "\nSendo em duas parcelas iguais de: " + parcela);
+				System.out.print("VocÍ vai pagar: " + precoPagar + "\nSendo em duas parcelas iguais de: " + parcela);
 				break;
 			}
 
@@ -318,7 +317,7 @@ public class Produto {
 
 	public void notaFiscal() {
 		cabecalho();
-		
+
 		System.out.print("===============================================================================\n");
 		System.out.print("NOTA FISCAL");
 		System.out.print("\n===============================================================================\n");
