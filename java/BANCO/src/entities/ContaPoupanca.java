@@ -1,35 +1,63 @@
 package entities;
+
 import java.util.Calendar;
-public class ContaPoupanca extends Conta {
-	
-	//atributos
-	private int DiaAniversarioPoupanca;
+
+public class ContaPoupanca extends ContaBancaria{
+	private int mesAniversario;
 	private double juros;
 	private double corrMonetaria;
-	//construtor
-	public ContaPoupanca(int numero, String cpf, int DiaAniversarioPoupanca, double juros, double corrMonetaria) {
-		super(numero, cpf);
-		this.DiaAniversarioPoupanca = DiaAniversarioPoupanca;
+	
+
+
+	public ContaPoupanca(int numero, double saldo, int mesAniversario, double juros, double corrMonetaria) {
+		super(numero, saldo);
+		this.mesAniversario = mesAniversario;
 		this.juros = juros;
 		this.corrMonetaria = corrMonetaria;
 	}
-	//encapsulamento 
-	public int getDiaAniversario() {
-		return DiaAniversarioPoupanca;
+
+
+
+	public int getMesAniversario() {
+		return mesAniversario;
+	}
+
+
+
+	public void setMesAniversario(int mesAniversario) {
+		this.mesAniversario = mesAniversario;
 	}
 	
-	public void setDiaAniversario(int diaAniversario) {
-		this.DiaAniversarioPoupanca = diaAniversario;
+	
+
+
+	public double getJuros() {
+		return juros;
 	}
-	//metodos
-public void aniversarioMes() {
+
+
+
+	public void setJuros(double juros) {
+		this.juros = juros;
+	}
+
+
+
+	public double getCorrMonetaria() {
+		return corrMonetaria;
+	}
+
+	public void setCorrMonetaria(double corrMonetaria) {
+		this.corrMonetaria = corrMonetaria;
+	}
+
+	public void aniversarioMes() {
 		
 		Calendar hoje = Calendar.getInstance();
 		
-		if(DiaAniversarioPoupanca == hoje.get(Calendar.DAY_OF_MONTH)) {
+		if(mesAniversario == hoje.get(Calendar.DAY_OF_MONTH)) {
 			double valor = 0;
-		
-			valor = super.getSal() * this.juros;
+			valor = super.getSaldo() * this.juros;
 			valor = valor * this.corrMonetaria;
 			credito(valor);
 		}else {
@@ -37,5 +65,4 @@ public void aniversarioMes() {
 		}
 		
 	}
-	
 }

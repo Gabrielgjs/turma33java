@@ -1,30 +1,38 @@
 package entities;
 
-public class ContaEmpresa extends Conta{
-	
-	//Atributos
-	private double emprestimoEmpresa;
-	
-	//Construtor
-	public ContaEmpresa(int numero, String cpf, double emprestimoEmpresa) {
-		super(numero, cpf);
-		this.emprestimoEmpresa = emprestimoEmpresa;
-	}
-	
-	
-	//Encapsulamento
-	public double getEmprestimoEmpresa() {
-		return emprestimoEmpresa;
-	}
+public class ContaEmpresa extends ContaBancaria{
 
+	private double limiteEmpresa;
 	
-
-	public void setEmprestimoEmpresa(double emprestimoEmpresa) {
-		this.emprestimoEmpresa = emprestimoEmpresa;
+	
+	public ContaEmpresa(int numero, double saldo, double limiteEmpresa) {
+		super(numero, saldo);
+		this.limiteEmpresa = limiteEmpresa;
+		
+	}
+	public double getLimiteEmpresa() {
+		return limiteEmpresa;
+	}
+	public void setLimiteEmpresa(double limiteEmpresa) {
+		this.limiteEmpresa = limiteEmpresa;
 	}
 	
+	public void saldoEmprestimo() {
+		System.out.println("Emprestimo pré aprovado: R$"+(this.limiteEmpresa*2));
+	}
 	
-	
-	
+	public void emprestimoEmpresarial(double emprestimo) {
+		
+		if(this.limiteEmpresa <= (this.limiteEmpresa/2) &&  emprestimo <= (this.limiteEmpresa*2)) {
+			
+			credito(emprestimo);
+			System.out.println("Emprestimo liberado: R$"+emprestimo);
+		}
+		else {
+			System.out.println("Emprestimo negado.");
+		}
+		
+		
+	}
 
 }
