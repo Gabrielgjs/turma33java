@@ -6,18 +6,18 @@ import java.util.Scanner;
 public class Produto {
 
 	static final int VALORFIXO = 11;
-	protected String nomeLoja = "NANPPA ";
-	protected String slogan = "A Loja do dev desesperado!\n";
-	protected String produto[] = new String[VALORFIXO];
-	protected String codigo[] = new String[VALORFIXO];
-	protected int estoque[] = new int[VALORFIXO];
-	protected double valor[] = new double[VALORFIXO];
-	protected String tituloMatriz[] = { "COD \t |", "PRODUTO \t\t |", "VALOR \t |", "ESTOQUE", "QUANTIDADE" };
+	private String nomeLoja = "NANPPA ";
+	private String slogan = "A Loja do dev desesperado!\n";
+	private String produto[] = new String[VALORFIXO];
+	private String codigo[] = new String[VALORFIXO];
+	private int estoque[] = new int[VALORFIXO];
+	private double valor[] = new double[VALORFIXO];
+	private String tituloMatriz[] = { "COD \t |", "PRODUTO \t\t |", "VALOR \t |", "ESTOQUE", "QUANTIDADE" };
 
-	protected int quantidadeCarrinho[] = new int[VALORFIXO];
-	protected double valorCompra[] = new double[VALORFIXO];
-	protected double valorTotalDaCompra = 0.00;
-	protected double precoPagar = 0.00;
+	private int quantidadeCarrinho[] = new int[VALORFIXO];
+	private double valorCompra[] = new double[VALORFIXO];
+	private double valorTotalDaCompra = 0.00;
+	private double precoPagar = 0.00;
 
 	public Produto(String nomeLoja, String slogan) {
 		super();

@@ -1,38 +1,30 @@
 package entities;
 
-public class ContaEmpresa extends ContaBancaria{
+public class ContaEmpresa extends ContaJava{
 
-	private double limiteEmpresa;
-	
-	
-	public ContaEmpresa(int numero, double saldo, double limiteEmpresa) {
-		super(numero, saldo);
-		this.limiteEmpresa = limiteEmpresa;
-		
+	private double emprestimoEmpresa;
+	//----------------------- Construtor -------------------------
+	public ContaEmpresa(int numero, String nomeCliente, double emprestimoEmpresa) {
+		super(numero, nomeCliente);
+		this.emprestimoEmpresa = emprestimoEmpresa; 
 	}
-	public double getLimiteEmpresa() {
-		return limiteEmpresa;
-	}
-	public void setLimiteEmpresa(double limiteEmpresa) {
-		this.limiteEmpresa = limiteEmpresa;
+	//------------------------Encapsulamento-------------------------
+	public double getEmprestimoEmpresa() {
+		return emprestimoEmpresa;
 	}
 	
-	public void saldoEmprestimo() {
-		System.out.println("Emprestimo pré aprovado: R$"+(this.limiteEmpresa*2));
+	public void setEmprestimoEmpresa(double emprestimoEmpresa) {
+		this.emprestimoEmpresa = emprestimoEmpresa;
 	}
-	
-	public void emprestimoEmpresarial(double emprestimo) {
-		
-		if(this.limiteEmpresa <= (this.limiteEmpresa/2) &&  emprestimo <= (this.limiteEmpresa*2)) {
-			
-			credito(emprestimo);
-			System.out.println("Emprestimo liberado: R$"+emprestimo);
+	//-----------------------Metodos-----------------------------------
+	public void pedirEmprestimo(double emprestimoPedido) {
+		if(emprestimoPedido > emprestimoEmpresa || emprestimoPedido <=0) {
+			System.out.println("Não temos o valor pedido para empréstimo");
+		}else {
+			this.emprestimoEmpresa -= emprestimoPedido;
+			super.credito(emprestimoPedido);
 		}
-		else {
-			System.out.println("Emprestimo negado.");
-		}
-		
-		
 	}
-
+	
+	
 }

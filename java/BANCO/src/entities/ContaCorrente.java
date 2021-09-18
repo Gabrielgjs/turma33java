@@ -1,28 +1,28 @@
 package entities;
 
-public class ContaCorrente  extends ContaBancaria{
-	int talionario;
-	
-	public ContaCorrente(int numero, double saldo, int talionario) {
-		super(numero, saldo);
-		this.talionario = talionario;
+public class ContaCorrente  extends ContaJava{
+	//----------------------Atributos-------------------
+	private int contadorTalao;
+	//----------------------Construtor-------------------
+	public ContaCorrente(int numero, String nomeCliente, int contadorTalao) {
+		super(numero, nomeCliente);
+		this.contadorTalao = contadorTalao; 
 	}
 	
-	public int getTalionario() {
-		return talionario;
+	//-------------------Encapsulamento ---------------
+	public int getContatorTalao() {
+		return contadorTalao;
 	}
-
-	public void setTalionario(int talionario) {
-		this.talionario = talionario;
+	public void setContadorTalao(int contatorTalao) {
+		this.contadorTalao = contadorTalao;
 	}
-	public void talionario() {
-		if (this.talionario <= 03) {
-			talionario = this.talionario + 12;
-			System.out.println("você ja tem mais um talão de cheques disponivel em sua conta.");
+	//----------------------Metodos---------------------
+	public void pedirTalão() {
+		this.contadorTalao++;
+		if (contadorTalao == 3) {
+			System.out.println("Limite de cheque atingidos");
+		}else {
+			super.debito(30.00);
 		}
-		else {
-			System.out.println(" você ainda não possui novos tales disponiveis");
-		}
-			
 	}
 }

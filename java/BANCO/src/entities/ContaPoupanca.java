@@ -1,68 +1,33 @@
 package entities;
 
-import java.util.Calendar;
-
-public class ContaPoupanca extends ContaBancaria{
-	private int mesAniversario;
-	private double juros;
-	private double corrMonetaria;
-	
 
 
-	public ContaPoupanca(int numero, double saldo, int mesAniversario, double juros, double corrMonetaria) {
-		super(numero, saldo);
-		this.mesAniversario = mesAniversario;
-		this.juros = juros;
-		this.corrMonetaria = corrMonetaria;
+public class ContaPoupanca extends ContaJava{
+	//-------------------------Atributos------------------
+	private int diaAniversarioPoupanca;
+	private double somaCorrecao;
+	//--------------------------Construtor------------------
+	public ContaPoupanca(int numero, String nomeCLiente, int diaAniversarioPoupanca) {
+		super(numero, nomeCLiente);
+		this.diaAniversarioPoupanca = diaAniversarioPoupanca;
 	}
-
-
-
-	public int getMesAniversario() {
-		return mesAniversario;
-	}
-
-
-
-	public void setMesAniversario(int mesAniversario) {
-		this.mesAniversario = mesAniversario;
+	//------------------------ Encapsulamento----------------
+	public int getDiaAniversarioPoupanca() {
+		return diaAniversarioPoupanca; 
 	}
 	
+	public void setDiaAniversarioPoupanca(int diaAniversarioPoupanca) {
+		this.diaAniversarioPoupanca = diaAniversarioPoupanca;
+	}
+	//------------------------Metodos------------------------
 	
-
-
-	public double getJuros() {
-		return juros;
-	}
-
-
-
-	public void setJuros(double juros) {
-		this.juros = juros;
-	}
-
-
-
-	public double getCorrMonetaria() {
-		return corrMonetaria;
-	}
-
-	public void setCorrMonetaria(double corrMonetaria) {
-		this.corrMonetaria = corrMonetaria;
-	}
-
-	public void aniversarioMes() {
-		
-		Calendar hoje = Calendar.getInstance();
-		
-		if(mesAniversario == hoje.get(Calendar.DAY_OF_MONTH)) {
-			double valor = 0;
-			valor = super.getSaldo() * this.juros;
-			valor = valor * this.corrMonetaria;
-			credito(valor);
-		}else {
-			System.out.println("Hoje não é o dia do Rendimento Mensal");
+	public void somaCorrecao(int diaAtual) {
+		if(diaAtual == this.diaAniversarioPoupanca) {
+			credito(super.getSaldo()*0.005);
 		}
-		
+	}
+	
+	public double getSomaCorrecao() {
+		return somaCorrecao;
 	}
 }
