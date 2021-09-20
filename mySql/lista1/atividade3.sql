@@ -10,14 +10,14 @@ CREATE TABLE tb_alunos (
     );
     
 insert into tb_alunos (nome_aluno, id_classe_aluno, materia, nota_aluno) values
-("Godoy", 1, "Programação", 10),
+("Gabriel", 1, "Programação", 10),
 ("Rodrigo", 1, "Programação", 8.5),
 ("Juliana", 2, "Matemática", 8),
 ("Mari", 2, "Português", 10),
-("Jaque", 1, "Biologia", 10),
-("Cyrillo", 2, "Geografia", 6),
-("Yvo", 1, "Sociologia", 4.5),
-("Vagner", 2, "Física", 5);
+("Fabiana", 1, "Biologia", 10),
+("Paulo", 2, "Geografia", 6),
+("Yvan", 1, "Sociologia", 4.5),
+("Joao", 2, "Física", 5);
 
 select * from tb_alunos;
 select * from tb_alunos where nota_aluno > 7;

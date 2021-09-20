@@ -10,11 +10,11 @@ CREATE TABLE tb_funcionarios (
     );
     
 insert into tb_funcionarios (Nome, Funcao, Salario, DataDePagamento) values
-("Godoy", "Gerente", 9999, 5),
-("Rodrigo", "Auxiliar Adm", 1500, 5),
+("Gabriel", "Gerente", 9999, 5),
+("Fabio", "Auxiliar Adm", 1500, 5),
 ("Juliana", "Trainee", 3500, 5),
 ("Mari", "Estagiária", 800, 5),
-("Jaque", "Auxiliar Adm", 1500, 5);
+("Matheus", "Auxiliar Adm", 1500, 5);
 
 select * from tb_funcionarios;
 select * from tb_funcionarios where Salario > 2000;

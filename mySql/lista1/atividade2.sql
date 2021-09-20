@@ -12,12 +12,12 @@ CREATE TABLE tb_produtos (
 insert into tb_produtos (nome_produto, cor_produto, preco_produto, quantidade_produto) values
 ("Bicicleta", "Vermelha", 300, 5),
 ("Televisão", "Preta", 1500, 3),
-("Patinete", "Prata", 200, 1),
+("Patins", "Prata", 200, 1),
 ("Celular", "Branco", 2000, 5),
 ("Mochila", "Azul", 150, 10),
-("Mochila", "Amarela", 150, 6),
+("Bolsa", "Amarela", 150, 6),
 ("Notebook", "Preto", 3000, 2),
-("Caixa de som", "Verde", 230, 11);
+("Caixa JBL", "Verde", 230, 11);
 
 select * from tb_produtos;
 select * from tb_produtos where preco_produto > 500;
