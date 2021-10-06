@@ -14,47 +14,50 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.lojadegames.LojaGames.model.Categoria;
 import com.lojadegames.LojaGames.repository.CategoriaRepository;
 
-@RestController
-@RequestMapping("/categoria")
-@CrossOrigin("*")
-public class CategoriaController {
 
+
+@RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequestMapping("/categoria")
+public class CategoriaController {
+	
 	@Autowired
 	private CategoriaRepository repository;
 	
 	@GetMapping
-	public ResponseEntity<List<Categoria>> GetAll() {
+	public ResponseEntity<List<Categoria>> findAllCategoria(){
 		return ResponseEntity.ok(repository.findAll());
 	}
-		
+	
 	@GetMapping("/{id}")
-	public ResponseEntity<Categoria> GetById(@PathVariable long id) {
-		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
+	public ResponseEntity<Categoria> findByIdCategoria(@PathVariable long id){
+		return repository.findById(id).map(resp -> ResponseEntity.ok(resp))
+				.orElse(ResponseEntity.notFound().build());
 	}
-	@GetMapping ("/nome/{nome}")
-	public ResponseEntity<List<Categoria>> GetByNome(String nome){
-		return ResponseEntity.ok(repository.findAllByDescricaoContainingIgnoreCase (nome) );
+	
+	@GetMapping("/descricao/{descricao}")
+	public ResponseEntity<List<Categoria>> findByDescricaoCategoria(@PathVariable String descricao){
+		return ResponseEntity.ok(repository.findAllByNomeOngContainingIgnoreCase(descricao));
 	}
 	
 	@PostMapping
-	public ResponseEntity<Categoria> post(@RequestBody Categoria categoria) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(categoria));
-
-	}
-
-	@PutMapping
-	public ResponseEntity<Categoria> put(@RequestBody Categoria categoria) {
+	public ResponseEntity<Categoria> postCategoria(@RequestBody Categoria categoria){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(categoria));
 	}
-
+	
+	@PutMapping("/{id}")
+	public ResponseEntity<Categoria> putCategoria(@PathVariable Long id, @RequestBody Categoria categoria){
+		categoria.setId(id);
+		return ResponseEntity.ok(repository.save(categoria));
+	}
+	
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable long id) {
+	public void deleteCategoria(@PathVariable long id){
 		repository.deleteById(id);
-
 	}
-
 
 }
