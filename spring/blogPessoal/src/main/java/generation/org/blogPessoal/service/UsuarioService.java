@@ -1,18 +1,17 @@
 package generation.org.blogPessoal.service;
 
 import java.nio.charset.Charset;
-import java.util.List;
 import java.util.Optional;
 
-import org.apache.tomcat.util.codec.binary.Base64;
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
-import generation.org.blogPessoal.model.UsuarioLogin;
+
 import generation.org.blogPessoal.model.Usuario;
+import generation.org.blogPessoal.model.UsuarioLogin;
 import generation.org.blogPessoal.repository.UsuarioRepository;
+
 
 @Service
 public class UsuarioService {
@@ -20,23 +19,13 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository repository;
 
-	public List<Usuario> listarUsuarios() {
-
-		return repository.findAll();
-
-	}
-
-	public Optional<Usuario> CadastrarUsuario(Usuario usuario) {
-		Optional<Usuario> user = repository.findByUsuario(usuario.getUsuario());
+	public Usuario CadastrarUsuario(Usuario usuario) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		if (user.isPresent()) {
-			return Optional.ofNullable(null);
-		}
-
+		
 		String senhaEncoder = encoder.encode(usuario.getSenha());
 		usuario.setSenha(senhaEncoder);
 
-		return Optional.of(repository.save(usuario));
+		return repository.save(senhaEncoder);
 	}
 
 	public Optional<UsuarioLogin> Logar(Optional<UsuarioLogin> user) {
@@ -52,29 +41,10 @@ public class UsuarioService {
 
 				user.get().setToken(authHeader);
 				user.get().setNome(usuario.get().getNome());
-
+				user.get().setSenha(usuario.get().getSenha());
 				return user;
 			}
 		}
-
 		return null;
-	}
-
-	public Optional<Usuario> atualizarUsuario(Usuario usuario) {
-
-		if (repository.findById(usuario.getId()).isPresent()) {
-
-			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-
-			String senhaEncoder = encoder.encode(usuario.getSenha());
-			usuario.setSenha(senhaEncoder);
-
-			return Optional.of(repository.save(usuario));
-
-		} else {
-
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado!", null);
-
-		}
 	}
 }

@@ -1,45 +1,57 @@
 package generation.org.blogPessoal.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import io.swagger.annotations.ApiModelProperty;
+
+
 @Entity
-@Table(name ="usuarios")
+@Table(name = "tb_usuario")
 public class Usuario {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-	@NotNull
-	@Size(min = 5, max = 100)
-	private String nome;
-	
-	@NotNull
-	@Size(min = 5, max = 100)
-	private String usuario;
-	
-	@NotNull
-	@Size(min = 5)
-	private String senha;
-	
-	// Primeiro método Construtor
 
-	public Usuario(long id, String nome, String usuario, String senha) {
+	@NotNull
+	private String nome;
+
+	@ApiModelProperty(example = "email@email.com.br")
+	@NotNull(message = "O atributo Usuário é Obrigatório!")
+	@Email(message = "O atributo Usuário deve ser um email válido!")
+	@Size(min = 2, max = 100, message = "O atributo usuario deve conter no minimo 2 caracter")
+	private String usuario;
+
+	//@NotNull
+	@Size(min = 8 , message = "O atributo usenha deve conter no minimo 2 caracter")
+	private String senha;
+
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("usuario")
+	private List<Postagem> postagem;
+ 
+	public Usuario(long id, @NotNull String nome, String usuario, String senha) {
+
 		this.id = id;
 		this.nome = nome;
 		this.usuario = usuario;
 		this.senha = senha;
 	}
 
-	// Segundo método Construtor
-
-	public Usuario() {	}
-
+	public Usuario() {}
 
 	public long getId() {
 		return id;
@@ -72,5 +84,4 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
 }

@@ -7,14 +7,16 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import generation.org.blogPessoal.model.Usuario;
 
-public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+public interface UsuarioRepository extends JpaRepository <Usuario, Long> {
 
-	//vai pegar um usuario e um username
-	public Optional<Usuario> findByUsuario(String usuario); 
-	//findBy é um nome reservado, o Usuario é exatamente o nome do atributo qeu criamos na model Usuario.
+	
+	public Optional<Usuario> findByUsuario (String usuario);
+	
+	public List <Usuario> findAllByNomeContainingIgnoreCase (String nome);
+	
+	public Usuario findByNome (String nome);
 
-	public List<Usuario> findAllByNomeContainingIgnoreCase(String string);
+	public Usuario save(String senhaEncoder);
 
-	public Usuario findAllNome(String string);
-
+	
 }

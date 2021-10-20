@@ -47,7 +47,7 @@ public class UsuarioRepositoryTest {
 	@DisplayName("💾 Retorna o nome")
 	public void findByNomeRetornaNome() throws Exception {
 
-		Usuario usuario = usuarioRepository.findAllNome("João da Silva");
+		Usuario usuario = usuarioRepository.findByNome("João da Silva");
 		assertTrue(usuario.getNome().equals("João da Silva"));
 	}
 
