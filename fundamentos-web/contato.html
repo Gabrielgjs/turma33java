@@ -36,14 +36,15 @@
                 <textarea name="assunto" id="assunto" cols="60" rows="5" onkeyup="validaAssunto()"></textarea>
                 <div id="textassunto"></div>
                 <br><br>
-                <button>Enviar</button>
+                <button type="submit" onclick="enviar()">Enviar</button>
             </form>
         </div>
         <div id="map">
             <h2>Endereço</h2>
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.7758517025404!2d-46.65737218469139!3d-23.683972584622143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce4546b368756f%3A0xdeca1a4ba9fb19f2!2sR.%20Raul%20Laparra%2C%20126%20-%20Jardim%20Sao%20Carlos%20(Zona%20Sul)%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2004433-170!5e0!3m2!1spt-BR!2sbr!4v1634740354406!5m2!1spt-BR!2sbr"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                tabindex="0" id="mapa" onmousemove="mapaZoom()" onmouseout="mapaNormal()"></iframe>
         </div>
     </div>
 
@@ -61,7 +62,7 @@
         </p>
 
     </footer>
-
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
